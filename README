@@ -1,4 +1,9 @@
-This is your new Play application
+This is open-source Community Tool Sharing website using the Java
+
+ Play Framework to be posted on GitHub and deployed on Heroku.
+ 
+ 
 =================================
+  Heroku Link:   http://bqtools.herokuapp.com/
 
 This file will be packaged with your application, when using `activator dist`.
