@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                       controllers.Application.index()
+#POST    /                      controllers.Application.login()
+#POST    /                      controllers.Application.signup()
+GET     /home                                controllers.Home.index()
+GET     /home/subcategory/              controllers.Home.subcategory(id1:Integer, id2: Integer)
+
+GET   /account/login                       controllers.Account.login()
+GET    /account/signup                        controllers.Account.signup()
+POST    /account/login                       controllers.Account.loginPost()
+POST    /account/signup                        controllers.Account.signupPost()
+GET     /account/logout                    controllers.Account.logout()
+GET     /account/user                     controllers.Account.user()
+GET   /account/userById/:id              controllers.Account.userById(id:Integer)
+GET   /account/userlist                    controllers.Account.userlist()
+POST    /account/userlist                        controllers.Account.saveProfile(user_id:Integer)
+
+GET     /tool/add                       controllers.Tools.add()
+POST    /tool/add                        controllers.Tools.addPost()
+GET    /tool/edit/:id                     controllers.Tools.edit(id:Integer)
+POST    /tool/edit/:id                     controllers.Tools.editPost(id:Integer)
+GET    /tool/delete/:id                     controllers.Tools.delete(id:Integer)
+POST    /tool/delete/:id                     controllers.Tools.deletePost(id:Integer)
+GET   /tool/overview/:id                       controllers.Tools.overview(id:Integer)
+POST    /tool/overview/review/:id                        controllers.Tools.reviewPost(id:Integer)
+
+GET     /categories                     controllers.Categories.index()
+POST    /categories                     controllers.Categories.create()
+GET     /categories/:id                 controllers.Categories.show(id:Integer)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

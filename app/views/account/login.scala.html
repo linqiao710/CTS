@@ -1,0 +1,50 @@
+@main("ToolCategory") {
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="@routes.Assets.versioned("javascripts/user.js")" type="text/javascript"></script>
+<body >
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+<h4><p><u><a href='@routes.Home.index()'>Back</a></u></p></h4>
+<br>
+    <h1>Log In</h1>
+<br>
+
+
+        <form class="form-horizontal" ng-app="myApp" ng-controller="userCtrl" ng-hide="hideform"  action="@routes.Account.loginPost()" method="post" name="myForm" novalidate>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Username:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="username" ng-model="username"  placeholder="username" required>  <span style="color:red"><font size="3">*</font></span>
+                     <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+                      <span ng-show="myForm.username.$error.required">Username is required.</span>
+                      </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" name="passw1" ng-model="passw1" placeholder="Password" ng-minlength="8" required> <span style="color:red"><font size="3">*</font></span>
+                     <span style="color:red" ng-show="myForm.passw1.$dirty && myForm.passw1.$invalid">
+                      <span ng-show="myForm.passw1.$error.required">Password is required.</span>
+                      <span ng-show="myForm.passw1.$error.minlength">Password contains at least 8 characters.</span>
+                      </span>
+                </div>
+            </div>
+
+            <hr>
+            <button class="btn btn-success" ng-disabled="myForm.username.$error.required||myForm.passw1.$error.required|| myForm.passw1.$error.minlength">
+                <span class="glyphicon glyphicon-log-in"></span> Login
+            </button>
+        </form>
+</div>
+
+</body>
+</html>
+}

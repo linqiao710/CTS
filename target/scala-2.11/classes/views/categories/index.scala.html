@@ -1,0 +1,20 @@
+@(toolCategory: List[ToolCategory],subcategory1:List[SubToolCategory],subcategory2:List[SubToolCategory],subcategory3:List[SubToolCategory])
+
+@main("ToolCategory") {
+<form action="@routes.Categories.create()" method="post">
+    <input type="text" name="name">
+    <button>Submit</button>
+</form>
+
+@if(toolCategory.isEmpty()) {
+<h2>No ToolCategory available</h2>
+}else {
+<h2>Tool Category List</h2>
+<ul>
+    @for(c <- toolCategory) {
+    <img src='@c.imageLink' border='0' alt="Air Tool" /><br>
+    <h3>@c.name</h3>
+    }
+</ul>
+}
+}

@@ -1,0 +1,31 @@
+@(toolCategory: List[ToolCategory])
+
+@main("ToolCategory") {
+<form action="@routes.Categories.create()" method="post">
+    <input type="text" name="name">
+    <button>Submit</button>
+</form>
+
+
+@if(toolCategory.isEmpty()) {
+<h2>No ToolCategory available</h2>
+}else {
+<h2>Tool Category List</h2>
+<ul>
+    @for(tc <- toolCategory) {
+    <div id="toolCategory">
+    <img src='@tc.imageLink' border='0' /><br>
+    <h3>@tc.name</h3>
+        <ul>
+          @for(stc <- tc.subToolCategoryList){
+              <li>@stc.name</li>
+          }
+        </ul>
+    </br>
+    </div>
+    }
+</ul>
+}
+
+
+}

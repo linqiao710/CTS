@@ -1,0 +1,47 @@
+@(toolCategory: List[ToolCategory])
+@*
+
+@main("Tools") {
+
+<h1>Login Form</h1>
+<form action="@routes.Application.login()" method="post">
+    <label for="username">Username</label>
+    <input type="text" name="username">
+    <br>
+
+    <label for="password">Password</label>
+    <input type="password" name="password">
+    <br>
+
+    <button>Login</button>
+</form>
+
+
+<h1>Signup Form</h1>
+<form action="@routes.Application.signup()" method="post">
+    <label for="username">Username</label>
+    <input type="text" name="username">
+    <br>
+
+    <label for="password">Password</label>
+    <input type="password" name="password">
+    <br>
+    <p>Password must be at least 8 characters</p>
+    <button>Sign Up</button>
+</form>
+
+
+@if(toolCategory.isEmpty()) {
+<h2>No ToolCategory available</h2>
+}else {
+<h2>Tool Category List</h2>
+<ul>
+    @for(c <- toolCategory) {
+    <li>@c.name</li>
+    }
+</ul>
+}
+}
+*@
+
+

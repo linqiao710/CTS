@@ -1,0 +1,49 @@
+@(users:List[ToolUser])
+
+@main("ToolCategory") {
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+@if(users.isEmpty()){
+
+    <h2>No User Available</h2>
+    }else {
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>User Image</th>
+            <th>User Name</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        @for(u <- users) {
+        <tr >
+            <td>
+                <img class="img-responsive" src='@u.imageLink' border='0' style="width:120px;height:120px;" /><br>
+            </td>
+            <td>
+                <a href='@routes.Account.userById(u.id)'>@u.username</a>
+            </td>
+
+
+        </tr>
+        }
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+}
+}

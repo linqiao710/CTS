@@ -1,0 +1,18 @@
+@(toolCategory: SubToolCategory, tools: List[Tool])
+
+@main("Tool Category") {
+
+<h1>Tool Category: @toolCategory.name</h1>
+
+@if(tools.isEmpty()) {
+<h2>No tools available in this category</h2>
+} else {
+<h2>Tool List for Category: @toolCategory.name</h2>
+<ul>
+    @for(t <- tools) {
+
+    }
+</ul>
+
+}
+}

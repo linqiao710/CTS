@@ -1,0 +1,31 @@
+@(title:String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        @* These 3 css files are borrowed from http://startbootstrap.com/template-overviews/shop-homepage/ *@
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
+       @* <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/shop-homepage.css")"> *@
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+
+
+    </head>
+    <body>
+    @header()
+    <div class="container">
+        <div class="row">
+            @content
+        </div>
+    </div>
+    @footer()
+    </body>
+</html>

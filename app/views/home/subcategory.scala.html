@@ -1,0 +1,77 @@
+@( tools: List[Tool], categoryName: String, subcategoryName: String)
+
+@main("Toos") {
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h4><p><u><a href='@routes.Home.index()'>Back</a></u></p></h4>
+    <br>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><b>Tool List</b></div>
+
+        <!-- List group -->
+        <ul class="list-group">
+            <li class="list-group-item">Category:@categoryName</li>
+            <li class="list-group-item">Subcategory:@subcategoryName</li>
+
+        </ul>
+    </div>
+
+    <br>
+@if(tools.isEmpty()) {
+<h2>No Tool available</h2>
+}else {
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Tool Image</th>
+            <th>Tool Name</th>
+            <th>Price(Per Day)</th>
+            <th>Is Available</th>
+
+        </tr>
+        </thead>
+
+
+        <tbody>
+        @for(t <- tools) {
+        <tr >
+            <td>
+                <img class="img-responsive" src='@t.imageLink' border='0' style="width:120px;height:120px;" /><br>
+            </td>
+            <td>
+                <a href='@routes.Tools.overview(t.id)'>@t.name</a>
+            </td>
+
+            <td>
+                @t.price
+            </td>
+
+
+            <td>
+                @t.isAvailable
+            </td>
+
+
+
+
+        </tr>
+        }
+        </tbody>
+    </table>
+  }
+
+
+
+
+</div>
+
+}
